@@ -5,7 +5,6 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "no";
   },
   {
     address = "irc.na.esper.net";
@@ -13,7 +12,6 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "no";
-    autoconnect = "yes";
   },
   {
     address = "chat.us.freenode.net";
@@ -21,7 +19,6 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "no";
-    autoconnect = "yes";
   },
   {
     address = "irc.rizon.net";
@@ -36,7 +33,6 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "no";
   },
   {
     address = "melchiz.udderweb.com";
@@ -44,7 +40,6 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "yes";
   },
   {
     address = "irc.oftc.net";
@@ -52,7 +47,6 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "no";
-    autoconnect = "yes";
   },
   {
     address = "activeuser.irc.grove.io";
@@ -61,17 +55,48 @@ servers = (
     password = "activeuser";
     use_ssl = "yes";
     ssl_verify = "no";
-    autoconnect = "yes";
   }
 );
+
 chatnets = {
-  efnet = { type = "IRC"; autoconnect = "no"; };
-  esper = { type = "IRC"; autosendcmd = "wait -esper;/^identify"; };
-  oftc = { type = "IRC"; autosendcmd = "wait -oftc;/^identify"; };
-  udderweb = { type = "IRC"; autosendcmd = "wait -oftc;/^identify"; };
-  rizon = { type = "IRC"; autosendcmd = "wait -rizon;/^identify"; };
-  freenode = { type = "IRC"; autosendcmd = "wait -freenode;/^identify;wait 2000"; };
-  osx86 = { type = "IRC"; };
+  activeuser = {
+    type = "IRC";
+    autoconnect = "yes";
+    nick = "zeekay";
+    autosendcmd = "wait -activeuser;/^identify";
+  };
+  efnet = {
+    type = "IRC";
+    autoconnect = "no";
+  };
+  esper = {
+    type = "IRC";
+    autoconnect = "yes";
+    autosendcmd = "wait -esper;/^identify";
+  };
+  freenode = {
+    type = "IRC";
+    autoconnect = "yes";
+    autosendcmd = "wait -freenode;/^identify;wait 2000";
+  };
+  oftc = {
+    type = "IRC";
+    autoconnect = "yes";
+  };
+  osx86 = {
+    type = "IRC";
+    autoconnect = "no";
+  };
+  rizon = {
+    type = "IRC";
+    autoconnect = "no";
+    autosendcmd = "wait -rizon;/^identify";
+  };
+  udderweb = {
+    type = "IRC";
+    autoconnect = "yes";
+    autosendcmd = "wait -oftc;/^identify";
+  };
 };
 
 channels = (
