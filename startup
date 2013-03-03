@@ -1,0 +1,8 @@
+script load autorejoin
+script load chanact
+script load dns
+script load keepnick
+script load invitejoin
+script load spell
+script load lastfm
+script load growl

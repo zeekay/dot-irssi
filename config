@@ -1,0 +1,371 @@
+servers = (
+  {
+    address = "irc.efnet.us";
+    chatnet = "efnet";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.na.esper.net";
+    chatnet = "esper";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "chat.us.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.rizon.net";
+    chatnet = "rizon";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+  },
+  {
+    address = "irc.osx86.hu";
+    chatnet = "osx86";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "melchiz.udderweb.com";
+    chatnet = "udderweb";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.oftc.net";
+    chatnet = "oftc";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "activeuser.irc.grove.io";
+    chatnet = "activeuser";
+    port = "6697";
+    password = "activeuser";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  }
+);
+chatnets = {
+  efnet = { type = "IRC"; autoconnect = "no"; };
+  esper = { type = "IRC"; autosendcmd = "wait -esper;/^identify"; };
+  oftc = { type = "IRC"; autosendcmd = "wait -oftc;/^identify"; };
+  udderweb = { type = "IRC"; autosendcmd = "wait -oftc;/^identify"; };
+  rizon = { type = "IRC"; autosendcmd = "wait -rizon;/^identify"; };
+  freenode = { type = "IRC"; autosendcmd = "wait -freenode;/^identify;wait 2000"; };
+  osx86 = { type = "IRC"; };
+};
+
+channels = (
+  { name = "#smth"; chatnet = "esper"; autojoin = "yes"; },
+  { name = "##javascript"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#node.js"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#coffeescript"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#adullam"; chatnet = "udderweb"; autojoin = "yes"; },
+  { name = "#heapify"; chatnet = "oftc"; autojoin = "yes"; },
+  { name = "#polyglotkc"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#activeuser"; chatnet = "activeuser"; autojoin = "yes"; }
+);
+
+aliases = {
+  J = "join";
+  WJOIN = "join -window";
+  WQUERY = "query -window";
+  LEAVE = "part";
+  BYE = "quit";
+  EXIT = "quit";
+  SIGNOFF = "quit";
+  DESCRIBE = "action";
+  DATE = "time";
+  LAST = "lastlog";
+  SAY = "msg *";
+  WI = "whois";
+  WII = "whois $0 $0";
+  WIN = "window";
+  WW = "whowas";
+  W = "who";
+  N = "names";
+  M = "msg";
+  T = "topic";
+  C = "clear";
+  CL = "clear";
+  K = "kick";
+  KB = "kickban";
+  KN = "knockout";
+  BANS = "ban";
+  B = "ban";
+  MUB = "unban *";
+  UB = "unban";
+  IG = "ignore";
+  UNIG = "unignore";
+  SB = "scrollback";
+  UMODE = "mode $N";
+  WC = "window close";
+  WN = "window new hide";
+  SV = "say Irssi $J ($V) - http://irssi.org/";
+  GOTO = "sb goto";
+  CHAT = "dcc chat";
+  RUN = "SCRIPT LOAD";
+  UPTIME = "eval exec - expr `date +%s` - \\$F | awk '{print \" Irssi uptime: \"int(\\\\\\$1/3600/24)\"d \"int(\\\\\\$1/3600%24)\"h \"int(\\\\\\$1/60%60)\"m \"int(\\\\\\$1%60)\"s\" }'";
+  CALC = "exec - if which bc &>/dev/null\\; then echo '$*' | bc | awk '{print \"$*=\"$$1}'\\; else echo bc was not found\\; fi";
+  SBAR = "STATUSBAR";
+  INVITELIST = "mode $C +I";
+  Q = "QUERY";
+  "MANUAL-WINDOWS" = "set use_status_window off;set autocreate_windows off;set autocreate_query_level none;set autoclose_windows off;set reuse_unused_windows on;save";
+  EXEMPTLIST = "mode $C +e";
+  ATAG = "WINDOW SERVER";
+  type = "IRC";
+  clear = "clear";
+  UP = "uptime | say";
+  close = "window close";
+  identify = "msg nickserv identify $IDENTIFY_PASSWORD";
+  nickserv = "quote nickserv $0-";
+  chanserv = "quote chanserv $0-";
+  memoserv = "quote memoserv $0-";
+  helpserv = "quote helpserv $0-";
+  operserv = "quote operserv $0-";
+  statserv = "quote statserv $0-";
+  botserv = "quote botserv $0-";
+  chghost = "quote chghost";
+  chgident = "quote chgident";
+  kline = "quote kline";
+  letme = "http://lmgtfy.com/?q=$-1";
+  bing = "say ,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.',.'-,.-',.',-',,.,-.','.'''-.',-.-,'.',-,.,.'";
+  snatch = "msg boot %download what $-1";
+  sowhat = "say ┐(￣ー￣)┌";
+  sbg = "scrollback goto";
+  sbe = "scrollback end";
+  sbs = "scrollback status";
+  sbh = "scrollback home";
+  hee = "say ( ﾟ◡◡ﾟ)";
+  o = "op * -YES";
+};
+
+statusbar = {
+  # formats: when using {templates}, the template is shown only if it's argument isn't empty unless no argument is given. for example {sb} is printed always, but {sb $T} is printed only if $T isn't empty.
+
+  items = {
+    # start/end text in statusbars
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+
+    topicbarstart = "{topicsbstart}";
+    topicbarend = "{topicsbend}";
+
+    # treated "normally", you could change the time/user name to whatever
+    time = "{sb $Z}";
+    user = "%K[%n{sb {sbnickmode $cumode}$N%K]%n{sbaway $A}}";
+
+    # treated specially .. window is printed with non-empty windows, window_empty is printed with empty windows
+    window = "{sb $winref:$itemname{sbmode $M}}";
+    window_empty = "{sb $winref{sbservertag $tag}}";
+    prompt = "{prompt $[.15]itemname}";
+    prompt_empty = "{prompt $winname}";
+    topic = " $topic";
+    topic_empty = " Irssi v$J - http://irssi.org/help/";
+
+    # all of these treated specially, they're only displayed when needed
+    lag = "{sb Lag: $0-}";
+    act = "{sb Act: $0-}";
+    more = "-- more --";
+  };
+
+  # there's two type of statusbars. root statusbars are either at the top of the screen or at the bottom of the screen. window statusbars are at the top/bottom of each split window in screen.
+  default = {
+    # the "default statusbar" to be displayed at the bottom of the window. contains all the normal items.
+    window = {
+
+      # window, root
+      type = "window";
+      # top, bottom
+      placement = "bottom";
+      # number
+      position = "1";
+      # active, inactive, always
+      visible = "active";
+
+      # list of items in statusbar in the display order
+      items = {
+        barstart = { priority = "100"; };
+        time = { };
+        user = { };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+        chanact = { };
+      };
+    };
+
+    # statusbar to use in inactive split windows
+    window_inact = {
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "always";
+      items = {
+        barstart = { priority = "100"; };
+        window = { };
+        window_empty = { };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+      disabled = "yes";
+    };
+
+    # we treat input line as yet another statusbar :) It's possible to add other items before or after the input line item.
+    prompt = {
+      type = "root";
+      placement = "bottom";
+      # we want to be at the bottom always
+      position = "100";
+      visible = "always";
+      items = {
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+        # treated specially, this is the real input line.
+        input = { priority = "10"; };
+      };
+    };
+
+    # topicbar
+    topic = {
+      type = "root";
+      placement = "top";
+      position = "1";
+      visible = "always";
+      items = {
+        topicbarstart = { priority = "100"; };
+        topic = { };
+        topic_empty = { };
+        topicbarend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+  };
+};
+settings = {
+  core = {
+    real_name = "zk";
+    user_name = "zk";
+    nick = "zk";
+    hostname = "a.monad.is.just.a.monoid.io";
+    awaylog_level = "MSGS HILIGHT";
+    awaylog_file = "~/.irssi/away.log";
+    server_reconnect_time = "60";
+    recode_autodetect_utf8 = "yes";
+    recode_fallback = "ISO8859-2";
+    recode_transliterate = "yes";
+    recode = "yes";
+  };
+  "fe-text" = {
+    term_force_colors = "yes";
+    lag_min_show = "1000ms";
+    indent = "10";
+    actlist_sort = "refnum";
+    actlist_names = "no";
+  };
+  "fe-common/core" = {
+    autocreate_own_query = "yes";
+    autocreate_query_level = "msg dcc dccmsgs";
+    use_msgs_window = "no";
+    use_status_window = "yes";
+    autolog = "no";
+    show_nickmode = "yes";
+    show_quit_once = "no";
+    completion_auto = "yes";
+    show_nickmode_empty = "no";
+    autoclose_query = "0";
+    term_charset = "utf-8";
+    theme = "default";
+    bell_beeps = "no";
+    beep_msg_level = "DCC";
+    beep_when_window_active = "no";
+    activity_hide_targets = "#python #django #coffeescript #node.js";
+    hilight_level = "PUBLIC DCCMSGS MSGS";
+    activity_hilight_level = "hilight msg";
+    print_active_channel = "yes";
+    activity_msg_level = "MSG";
+    activity_hide_level = "joins parts quits nicks modes";
+    hilight_act_color = "%M";
+  };
+  "irc/core" = {
+    skip_motd = "yes";
+    lag_max_before_disconnect = "300";
+    alternate_nick = "zeekay";
+  };
+  "irc/dcc" = {
+    dcc_autoget = "yes";
+    dcc_autoresume = "yes";
+    dcc_autoget_max_size = "0k";
+    dcc_download_path = "/home/zk/downloads";
+    dcc_port = "4000";
+    dcc_mirc_ctcp = "yes";
+    dcc_autoaccept_lowports = "yes";
+  };
+  "perl/core/scripts" = {
+    chanact_abbreviate_names = "3";
+    lastfm_user = "alwaysafool";
+    lastfm_use_action = "no";
+    lastfm_output = "np: %artist - %name (%url)";
+    niq_show_in_statusbar = "yes";
+    niq_hide_on_inactive = "yes";
+    url_log_size = "25";
+    url_log_file = "/home/zk/.irssi/url_log";
+    url_log = "yes";
+    remotegrowl_host = "fool";
+    remotegrowl_image = "/Users/zk/.irssi-growl/irssi-white.png";
+    remotegrowl_path = "/Users/zk/.irssi-growl/remote-notify.pl";
+    remotegrowl_msg_enabled = "yes";
+    remotegrowl_hilight_enabled = "yes";
+    remotegrowl_sticky = "no";
+    chanact_autorenumber = "yes";
+    chanact_chop_status = "yes";
+    chanact_display = "$H$N:$M$C$S";
+    chanact_display_alias = "$H$N$M$S";
+    chanact_renumber_start = "50";
+    chanact_separator = " ";
+    chanact_header = ":: ";
+  };
+};
+hilights = (
+  { text = "STARTS IN::"; nick = "yes"; word = "yes"; },
+  { text = "zeekay"; nick = "yes"; word = "yes"; },
+  { text = "zk"; nick = "yes"; word = "yes"; }
+);
+keyboard = ( 
+  { key = "meta-s"; id = "command"; data = "_spellcheck "; }
+);
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#smth";
+        tag = "esper";
+      }
+    );
+  };
+};
+mainwindows = { 1 = { first_line = "1"; lines = "26"; }; };
