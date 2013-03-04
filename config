@@ -77,11 +77,13 @@ chatnets = {
   freenode = {
     type = "IRC";
     autoconnect = "yes";
-    autosendcmd = "wait -freenode;/^identify;wait 2000";
+    autosendcmd = "wait -freenode;/^identify";
   };
   oftc = {
     type = "IRC";
     autoconnect = "yes";
+    nick = "zeekay";
+    autosendcmd = "wait -oftc;/^identify";
   };
   osx86 = {
     type = "IRC";
@@ -95,7 +97,7 @@ chatnets = {
   udderweb = {
     type = "IRC";
     autoconnect = "yes";
-    autosendcmd = "wait -oftc;/^identify";
+    autosendcmd = "wait -udderweb;/^identify";
   };
 };
 
