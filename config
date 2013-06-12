@@ -1,115 +1,78 @@
 servers = (
   {
-    address = "irc.efnet.us";
-    chatnet = "efnet";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-  },
-  {
-    address = "irc.na.esper.net";
-    chatnet = "esper";
-    port = "6697";
-    use_ssl = "yes";
-    ssl_verify = "no";
-  },
-  {
-    address = "chat.us.freenode.net";
-    chatnet = "freenode";
-    port = "6697";
-    use_ssl = "yes";
-    ssl_verify = "no";
-  },
-  {
-    address = "irc.rizon.net";
-    chatnet = "rizon";
-    port = "6697";
-    use_ssl = "yes";
-    ssl_verify = "no";
-  },
-  {
-    address = "irc.osx86.hu";
-    chatnet = "osx86";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-  },
-  {
-    address = "melchiz.udderweb.com";
-    chatnet = "udderweb";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-  },
-  {
-    address = "irc.oftc.net";
-    chatnet = "oftc";
-    port = "6697";
-    use_ssl = "yes";
-    ssl_verify = "no";
-  },
-  {
-    address = "activeuser.irc.grove.io";
+    address = "irc.activeuser.znc";
+    autoconnect = "yes";
     chatnet = "activeuser";
-    port = "6697";
-    password = "activeuser";
-    use_ssl = "yes";
+    password = "zeekay/activeuser:$ZNC_PASSWORD";
+    port = "9242";
     ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.emp.znc";
+    autoconnect = "yes";
+    chatnet = "emp";
+    password = "zeekay/emp:$ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.esper.znc";
+    autoconnect = "yes";
+    chatnet = "esper";
+    password = "zeekay/esper:$ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.freenode.znc";
+    autoconnect = "yes";
+    chatnet = "freenode";
+    password = "zeekay/freenode:$ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.oftc.znc";
+    autoconnect = "yes";
+    chatnet = "oftc";
+    password = "zeekay/oftc:$ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.udderweb.znc";
+    autoconnect = "yes";
+    chatnet = "udderweb";
+    password = "zeekay/udderweb:$ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
   }
 );
 
 chatnets = {
-  activeuser = {
-    type = "IRC";
-    autoconnect = "yes";
-    nick = "zeekay";
-    autosendcmd = "wait -activeuser;/^identify";
-  };
-  efnet = {
-    type = "IRC";
-    autoconnect = "no";
-  };
-  esper = {
-    type = "IRC";
-    autoconnect = "yes";
-    autosendcmd = "wait -esper;/^identify";
-  };
-  freenode = {
-    type = "IRC";
-    autoconnect = "yes";
-    autosendcmd = "wait -freenode;/^identify";
-  };
-  oftc = {
-    type = "IRC";
-    autoconnect = "yes";
-    nick = "zeekay";
-    autosendcmd = "wait -oftc;/^identify";
-  };
-  osx86 = {
-    type = "IRC";
-    autoconnect = "no";
-  };
-  rizon = {
-    type = "IRC";
-    autoconnect = "no";
-    autosendcmd = "wait -rizon;/^identify";
-  };
-  udderweb = {
-    type = "IRC";
-    autoconnect = "yes";
-    autosendcmd = "wait -udderweb;/^identify";
-  };
+  activeuser = { type = "IRC"; };
+  emp = { type = "IRC"; };
+  esper = { type = "IRC"; };
+  freenode = { type = "IRC"; };
+  oftc = { type = "IRC"; };
+  udderweb = { type = "IRC"; };
 };
 
 channels = (
-  { name = "#smth"; chatnet = "esper"; autojoin = "yes"; },
   { name = "##javascript"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#node.js"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#coffeescript"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#activeuser"; chatnet = "activeuser"; autojoin = "yes"; },
   { name = "#adullam"; chatnet = "udderweb"; autojoin = "yes"; },
+  { name = "#coffeescript"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#electronic"; chatnet = "emp"; autojoin = "yes"; },
   { name = "#heapify"; chatnet = "oftc"; autojoin = "yes"; },
-  { name = "#polyglotkc"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#activeuser"; chatnet = "activeuser"; autojoin = "yes"; }
+  { name = "#node.js"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#smth"; chatnet = "esper"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -295,9 +258,6 @@ settings = {
     real_name = "zk";
     user_name = "zk";
     nick = "zk";
-    hostname = "a.monad.is.just.a.monoid.io";
-    awaylog_level = "MSGS HILIGHT";
-    awaylog_file = "~/.irssi/away.log";
     server_reconnect_time = "60";
     recode_autodetect_utf8 = "yes";
     recode_fallback = "ISO8859-2";
@@ -374,14 +334,17 @@ settings = {
     chanact_header = ":: ";
   };
 };
+
 hilights = (
   { text = "STARTS IN::"; nick = "yes"; word = "yes"; },
   { text = "zeekay"; nick = "yes"; word = "yes"; },
-  { text = "zk"; nick = "yes"; word = "yes"; }
+  { text = "monoid.io"; nick = "yes"; word = "yes"; }
 );
-keyboard = ( 
+
+keyboard = (
   { key = "meta-s"; id = "command"; data = "_spellcheck "; }
 );
+
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
   2 = {
@@ -396,3 +359,5 @@ windows = {
   };
 };
 mainwindows = { 1 = { first_line = "1"; lines = "26"; }; };
+
+# vim:ft=perl
