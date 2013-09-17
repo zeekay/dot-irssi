@@ -36,10 +36,28 @@ servers = (
     use_ssl = "yes";
   },
   {
+    address = "irc.lunarnet.znc";
+    autoconnect = "yes";
+    chatnet = "lunarnet";
+    password = "zeekay/lunarnet:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
     address = "irc.oftc.znc";
     autoconnect = "yes";
     chatnet = "oftc";
     password = "zeekay/oftc:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.innerirc.znc";
+    autoconnect = "yes";
+    chatnet = "innerirc";
+    password = "zeekay/innerirc:ZNC_PASSWORD";
     port = "9242";
     ssl_verify = "no";
     use_ssl = "yes";
@@ -60,6 +78,8 @@ chatnets = {
   emp = { type = "IRC"; };
   esper = { type = "IRC"; };
   freenode = { type = "IRC"; };
+  innerirc = { type = "IRC"; };
+  lunarnet = { type = "IRC"; };
   oftc = { type = "IRC"; };
   udderweb = { type = "IRC"; };
 };
@@ -73,6 +93,8 @@ channels = (
   { name = "#heapify"; chatnet = "oftc"; autojoin = "yes"; },
   { name = "#node.js"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#smth"; chatnet = "esper"; autojoin = "yes"; }
+  { name = "#subfm"; chatnet = "innerirc"; autojoin = "yes"; }
+  { name = "#sancho"; chatnet = "lunarnet"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -360,4 +382,11 @@ windows = {
 };
 mainwindows = { 1 = { first_line = "1"; lines = "26"; }; };
 
+ignores = (
+  {
+    mask = "JOINS";
+    level = "PARTS QUITS NICKS";
+    channels = ( "#coffeescript", "##javascript", "#node.js" );
+  }
+);
 # vim:ft=perl

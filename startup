@@ -5,3 +5,4 @@ script load keepnick
 script load invitejoin
 script load spell
 script load lastfm
+script load fnotify
