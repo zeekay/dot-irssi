@@ -1,6 +1,6 @@
 servers = (
   {
-    address = "irc.activeuser.znc";
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "activeuser";
     password = "zeekay/activeuser:ZNC_PASSWORD";
@@ -9,7 +9,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "irc.emp.znc";
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "emp";
     password = "zeekay/emp:ZNC_PASSWORD";
@@ -18,7 +18,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "irc.esper.znc";
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "esper";
     password = "zeekay/esper:ZNC_PASSWORD";
@@ -27,7 +27,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "irc.freenode.znc";
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "freenode";
     password = "zeekay/freenode:ZNC_PASSWORD";
@@ -36,7 +36,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "irc.lunarnet.znc";
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "lunarnet";
     password = "zeekay/lunarnet:ZNC_PASSWORD";
@@ -45,7 +45,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "irc.oftc.znc";
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "oftc";
     password = "zeekay/oftc:ZNC_PASSWORD";
@@ -54,7 +54,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "irc.innerirc.znc";
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "innerirc";
     password = "zeekay/innerirc:ZNC_PASSWORD";
@@ -63,7 +63,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "irc.udderweb.znc";
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "udderweb";
     password = "zeekay/udderweb:ZNC_PASSWORD";
