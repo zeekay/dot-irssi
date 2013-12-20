@@ -6,15 +6,6 @@ servers = (
     port = "6697";
     ssl_verify = "no";
     use_ssl = "yes";
-  },
-  {
-    address = "some.znc.server";
-    autoconnect = "yes";
-    chatnet = "znc";
-    password = "zeekay/network:$ZNC_PASSWORD";
-    port = "9999";
-    ssl_verify = "no";
-    use_ssl = "yes";
   }
 );
 
@@ -239,7 +230,6 @@ settings = {
     activity_msg_level = "MSG";
     activity_hide_level = "joins parts quits nicks modes topic";
     hilight_act_color = "%M";
-    activity_hide_targets = "#electronic #node.js ##javascript #subfm #coffeescript #sancho";
   };
   "irc/core" = {
     skip_motd = "yes";

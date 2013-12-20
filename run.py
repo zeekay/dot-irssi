@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import getpass, os, re, subprocess, sys
 from tempfile import mkstemp
 
