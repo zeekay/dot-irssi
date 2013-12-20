@@ -6,3 +6,5 @@ script load invitejoin
 script load spell
 script load lastfm
 script load fnotify
+script load uberprompt
+script load vim_mode

@@ -1,0 +1,4 @@
+map <C-H> :bprev
+map <C-L> :bnext
+map <C-N> :bnext
+map <C-P> :bprev

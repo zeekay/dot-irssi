@@ -1,100 +1,30 @@
 servers = (
   {
-    address = "irc.activeuser.znc";
-    autoconnect = "yes";
-    chatnet = "activeuser";
-    password = "zeekay/activeuser:ZNC_PASSWORD";
-    port = "9242";
-    ssl_verify = "no";
-    use_ssl = "yes";
-  },
-  {
-    address = "irc.emp.znc";
-    autoconnect = "yes";
-    chatnet = "emp";
-    password = "zeekay/emp:ZNC_PASSWORD";
-    port = "9242";
-    ssl_verify = "no";
-    use_ssl = "yes";
-  },
-  {
-    address = "irc.esper.znc";
+    address = "irc.esper.net";
     autoconnect = "yes";
     chatnet = "esper";
-    password = "zeekay/esper:ZNC_PASSWORD";
-    port = "9242";
+    port = "6697";
     ssl_verify = "no";
     use_ssl = "yes";
   },
   {
-    address = "irc.freenode.znc";
+    address = "some.znc.server";
     autoconnect = "yes";
-    chatnet = "freenode";
-    password = "zeekay/freenode:ZNC_PASSWORD";
-    port = "9242";
-    ssl_verify = "no";
-    use_ssl = "yes";
-  },
-  {
-    address = "irc.lunarnet.znc";
-    autoconnect = "yes";
-    chatnet = "lunarnet";
-    password = "zeekay/lunarnet:ZNC_PASSWORD";
-    port = "9242";
-    ssl_verify = "no";
-    use_ssl = "yes";
-  },
-  {
-    address = "irc.oftc.znc";
-    autoconnect = "yes";
-    chatnet = "oftc";
-    password = "zeekay/oftc:ZNC_PASSWORD";
-    port = "9242";
-    ssl_verify = "no";
-    use_ssl = "yes";
-  },
-  {
-    address = "irc.innerirc.znc";
-    autoconnect = "yes";
-    chatnet = "innerirc";
-    password = "zeekay/innerirc:ZNC_PASSWORD";
-    port = "9242";
-    ssl_verify = "no";
-    use_ssl = "yes";
-  },
-  {
-    address = "irc.udderweb.znc";
-    autoconnect = "yes";
-    chatnet = "udderweb";
-    password = "zeekay/udderweb:ZNC_PASSWORD";
-    port = "9242";
+    chatnet = "znc";
+    password = "zeekay/network:$ZNC_PASSWORD";
+    port = "9999";
     ssl_verify = "no";
     use_ssl = "yes";
   }
 );
 
 chatnets = {
-  activeuser = { type = "IRC"; };
-  emp = { type = "IRC"; };
   esper = { type = "IRC"; };
-  freenode = { type = "IRC"; };
-  innerirc = { type = "IRC"; };
-  lunarnet = { type = "IRC"; };
-  oftc = { type = "IRC"; };
-  udderweb = { type = "IRC"; };
+  znc = { type = "IRC"; };
 };
 
 channels = (
-  { name = "##javascript"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#activeuser"; chatnet = "activeuser"; autojoin = "yes"; },
-  { name = "#adullam"; chatnet = "udderweb"; autojoin = "yes"; },
-  { name = "#coffeescript"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#electronic"; chatnet = "emp"; autojoin = "yes"; },
-  { name = "#heapify"; chatnet = "oftc"; autojoin = "yes"; },
-  { name = "#node.js"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#smth"; chatnet = "esper"; autojoin = "yes"; }
-  { name = "#subfm"; chatnet = "innerirc"; autojoin = "yes"; }
-  { name = "#sancho"; chatnet = "lunarnet"; autojoin = "yes"; }
+  { name = "#smth"; chatnet = "esper"; autojoin = "yes"; },
 );
 
 aliases = {
@@ -245,19 +175,6 @@ statusbar = {
     };
 
     # we treat input line as yet another statusbar :) It's possible to add other items before or after the input line item.
-    prompt = {
-      type = "root";
-      placement = "bottom";
-      # we want to be at the bottom always
-      position = "100";
-      visible = "always";
-      items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
-        # treated specially, this is the real input line.
-        input = { priority = "10"; };
-      };
-    };
 
     # topicbar
     topic = {
@@ -273,6 +190,13 @@ statusbar = {
       };
     };
 
+    prompt = {
+      items = {
+        uberprompt = { priority = "-1"; };
+        input = { priority = "10"; };
+      };
+      position = "100";
+    };
   };
 };
 settings = {
@@ -309,13 +233,13 @@ settings = {
     bell_beeps = "no";
     beep_msg_level = "DCC";
     beep_when_window_active = "no";
-    activity_hide_targets = "#python #django #coffeescript #node.js";
     hilight_level = "PUBLIC DCCMSGS MSGS";
     activity_hilight_level = "hilight msg";
     print_active_channel = "yes";
     activity_msg_level = "MSG";
-    activity_hide_level = "joins parts quits nicks modes";
+    activity_hide_level = "joins parts quits nicks modes topic";
     hilight_act_color = "%M";
+    activity_hide_targets = "#electronic #node.js ##javascript #subfm #coffeescript #sancho";
   };
   "irc/core" = {
     skip_motd = "yes";
@@ -354,16 +278,13 @@ settings = {
     chanact_renumber_start = "50";
     chanact_separator = " ";
     chanact_header = ":: ";
+    uberprompt_format_empty = "%K› ";
+    uberprompt_format = "›$uber";
+    uberprompt_use_replaces = "no";
   };
 };
 
-hilights = (
-  { text = "STARTS IN::"; nick = "yes"; word = "yes"; },
-  { text = "zeekay"; nick = "yes"; word = "yes"; },
-  { text = "monoid.io"; nick = "yes"; word = "yes"; }
-);
-
-keyboard = (
+keyboard = ( 
   { key = "meta-s"; id = "command"; data = "_spellcheck "; }
 );
 
@@ -380,13 +301,4 @@ windows = {
     );
   };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "26"; }; };
-
-ignores = (
-  {
-    mask = "JOINS";
-    level = "PARTS QUITS NICKS";
-    channels = ( "#coffeescript", "##javascript", "#node.js" );
-  }
-);
-# vim:ft=perl
+mainwindows = { 1 = { first_line = "1"; lines = "20"; }; };
