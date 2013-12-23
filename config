@@ -1,24 +1,106 @@
 servers = (
   {
-    address = "irc.esper.net";
+    address = "is.whatit.is";
+    autoconnect = "yes";
+    chatnet = "verus";
+    password = "zeekay/verus:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "is.whatit.is";
+    autoconnect = "yes";
+    chatnet = "emp";
+    password = "zeekay/emp:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "is.whatit.is";
     autoconnect = "yes";
     chatnet = "esper";
-    port = "6697";
+    password = "zeekay/esper:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "is.whatit.is";
+    autoconnect = "yes";
+    chatnet = "freenode";
+    password = "zeekay/freenode:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "is.whatit.is";
+    autoconnect = "yes";
+    chatnet = "lunarnet";
+    password = "zeekay/lunarnet:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "is.whatit.is";
+    autoconnect = "yes";
+    chatnet = "oftc";
+    password = "zeekay/oftc:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "is.whatit.is";
+    autoconnect = "yes";
+    chatnet = "dlnetworks";
+    password = "zeekay/dlnetworks:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "is.whatit.is";
+    autoconnect = "yes";
+    chatnet = "udderweb";
+    password = "zeekay/udderweb:ZNC_PASSWORD";
+    port = "9242";
     ssl_verify = "no";
     use_ssl = "yes";
   }
 );
 
 chatnets = {
+  verus = { type = "IRC"; };
+  emp = { type = "IRC"; };
   esper = { type = "IRC"; };
-  znc = { type = "IRC"; };
+  freenode = { type = "IRC"; };
+  dlnetworks = { type = "IRC"; };
+  lunarnet = { type = "IRC"; };
+  oftc = { type = "IRC"; };
+  udderweb = { type = "IRC"; };
 };
 
 channels = (
+  { name = "##javascript"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#founders"; chatnet = "verus"; autojoin = "yes"; },
+  { name = "#verus"; chatnet = "verus"; autojoin = "yes"; },
+  { name = "#adullam"; chatnet = "udderweb"; autojoin = "yes"; },
+  { name = "#coffeescript"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#electronic"; chatnet = "emp"; autojoin = "yes"; },
+  { name = "#heapify"; chatnet = "oftc"; autojoin = "yes"; },
+  { name = "#node.js"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#smth"; chatnet = "esper"; autojoin = "yes"; },
+  { name = "#subfm"; chatnet = "dlnetworks"; autojoin = "yes"; },
+  { name = "#production"; chatnet = "dlnetworks"; autojoin = "yes"; },
+  { name = "#sancho"; chatnet = "lunarnet"; autojoin = "yes"; }
 );
 
 aliases = {
+  znc = "query *status";
   J = "join";
   WJOIN = "join -window";
   WQUERY = "query -window";
@@ -69,7 +151,6 @@ aliases = {
   clear = "clear";
   UP = "uptime | say";
   close = "window close";
-  identify = "msg nickserv identify $IDENTIFY_PASSWORD";
   nickserv = "quote nickserv $0-";
   chanserv = "quote chanserv $0-";
   memoserv = "quote memoserv $0-";
@@ -230,6 +311,7 @@ settings = {
     activity_msg_level = "MSG";
     activity_hide_level = "joins parts quits nicks modes topic";
     hilight_act_color = "%M";
+    activity_hide_targets = "= #electronic #node.js ##javascript #subfm #coffeescript #sancho #adullam";
   };
   "irc/core" = {
     skip_motd = "yes";
@@ -274,13 +356,39 @@ settings = {
   };
 };
 
+hilights = (
+  { text = "STARTS IN::"; nick = "yes"; word = "yes"; },
+  { text = "zeekay"; nick = "yes"; word = "yes"; },
+  { text = "monoid.io"; nick = "yes"; word = "yes"; }
+);
+
 keyboard = ( 
   { key = "meta-s"; id = "command"; data = "_spellcheck "; }
 );
 
+
+ignores = (
+  {
+    mask = "JOINS";
+    level = "PARTS QUITS NICKS";
+    channels = ( "#coffeescript", "##javascript", "#node.js" );
+  },
+  { level = "JOINS PARTS QUITS"; channels = ( "#optimus", "#verus" ); }
+);
+# vim:ft=perl
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
   2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#crypt";
+        tag = "esper";
+      }
+    );
+  };
+  3 = {
     items = (
       {
         type = "CHANNEL";
@@ -290,5 +398,115 @@ windows = {
       }
     );
   };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#founders";
+        tag = "verus";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#verus";
+        tag = "verus";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#heapify";
+        tag = "oftc";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#adullam";
+        tag = "udderweb";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#subfm";
+        tag = "dlnetworks";
+      }
+    );
+  };
+  9 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#sancho";
+        tag = "lunarnet";
+      }
+    );
+  };
+  10 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "##javascript";
+        tag = "freenode";
+      }
+    );
+  };
+  11 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#coffeescript";
+        tag = "freenode";
+      }
+    );
+  };
+  12 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#node.js";
+        tag = "freenode";
+      }
+    );
+  };
+  13 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#production";
+        tag = "dlnetworks";
+      }
+    );
+  };
+  14 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#electronic";
+        tag = "emp";
+      }
+    );
+  };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "20"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "13"; }; };
