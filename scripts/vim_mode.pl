@@ -2629,11 +2629,11 @@ sub vim_mode_cmd {
 
     my $mode_str = '';
     if ($mode == M_INS) {
-        $mode_str = 'Insert';
+        $mode_str = '';
     } elsif ($mode == M_EX) {
-        $mode_str = '%_Ex%_';
+        $mode_str = '%_ex%_';
     } else {
-        $mode_str = '%_Command%_';
+        $mode_str = '%_cmd%_';
         if ($register ne '"' or $numeric_prefix or $operator or $movement or
             $pending_map) {
             my $partial = '';
