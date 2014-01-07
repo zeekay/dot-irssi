@@ -171,6 +171,9 @@ aliases = {
   sbh = "scrollback home";
   hee = "say ( ﾟ◡◡ﾟ)";
   o = "op * -YES";
+  SE = "SCRIPT EXEC use Irssi (@Irssi::EXPORT_OK)\\; $0-";
+  vm_add = "/^statusbar prompt add -before prompt -alignment left vim_mode";
+  vm_del = "/^statusbar prompt remove vim_mode";
 };
 
 statusbar = {
@@ -266,6 +269,7 @@ statusbar = {
       items = {
         uberprompt = { priority = "-1"; };
         input = { priority = "10"; };
+        vim_mode = { };
       };
       position = "100";
     };
@@ -311,7 +315,7 @@ settings = {
     activity_msg_level = "MSG";
     activity_hide_level = "joins parts quits nicks modes topic";
     hilight_act_color = "%M";
-    activity_hide_targets = "= #electronic #node.js ##javascript #subfm #coffeescript #sancho #adullam";
+    activity_hide_targets = "#electronic #node.js ##javascript #subfm #coffeescript #sancho #adullam #heapify";
   };
   "irc/core" = {
     skip_motd = "yes";
@@ -353,6 +357,8 @@ settings = {
     uberprompt_format_empty = "%K› ";
     uberprompt_format = "›$uber";
     uberprompt_use_replaces = "no";
+    uberprompt_load_hook = "/^vm_add";
+    uberprompt_unload_hook = "/^vm_del";
   };
 };
 
@@ -423,8 +429,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#heapify";
-        tag = "oftc";
+        name = "#subfm";
+        tag = "dlnetworks";
       }
     );
   };
@@ -433,8 +439,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#adullam";
-        tag = "udderweb";
+        name = "#electronic";
+        tag = "emp";
       }
     );
   };
@@ -443,7 +449,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#subfm";
+        name = "#production";
         tag = "dlnetworks";
       }
     );
@@ -483,7 +489,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#node.js";
+        name = "#Node.js";
         tag = "freenode";
       }
     );
@@ -493,8 +499,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#production";
-        tag = "dlnetworks";
+        name = "#heapify";
+        tag = "oftc";
       }
     );
   };
@@ -503,10 +509,45 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#electronic";
-        tag = "emp";
+        name = "#adullam";
+        tag = "udderweb";
+      }
+    );
+  };
+  15 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "bunnyule";
+        tag = "dlnetworks";
+      }
+    );
+  };
+  16 = {
+    items = (
+      { type = "QUERY"; chat_type = "IRC"; name = "bunny"; tag = "emp"; }
+    );
+  };
+  17 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "xaimus";
+        tag = "esper";
+      }
+    );
+  };
+  18 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "*status";
+        tag = "oftc";
       }
     );
   };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "13"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
