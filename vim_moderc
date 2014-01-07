@@ -2,3 +2,5 @@ map <C-H> :bprev
 map <C-L> :bnext
 map <C-N> :bnext
 map <C-P> :bprev
+map <C-U> S
+map <C-X> :servernext
