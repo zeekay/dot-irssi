@@ -1,4 +1,4 @@
-mod.install() {
-    ellipsis.backup ~/.irssi
-    ln -s $mod_path ~/.irssi
+pkg.install() {
+    ellipsis.backup $HOME/.irssi
+    ln -s $PKG_PATH $HOME/.irssi
 }
