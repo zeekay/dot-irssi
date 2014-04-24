@@ -1,6 +1,5 @@
-# dot-irssi
-Default [irssi][irssi] dotfiles provided by [ellipsis][ellipsis] and my personal
-setup.
+# zeekay/dot-irssi
+My irssi dotfiles, compatible with [ellipsis][ellipsis].
 
 ## Features
 Spellcheck, vim-mode, and other fanciness.
@@ -9,7 +8,7 @@ Spellcheck, vim-mode, and other fanciness.
 Clone and symlink or install with [ellipsis][ellipsis]:
 
 ```
-$ ellipsis install irssi
+$ ellipsis install zeekay/dot-irssi
 ```
 
 [ellipsis]: http://ellipsis.sh
