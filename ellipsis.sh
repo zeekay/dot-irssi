@@ -4,6 +4,5 @@
 # My irssi configuration.
 
 pkg.install() {
-    ellipsis.backup $HOME/.irssi
-    ln -s $PKG_PATH $HOME/.irssi
+    fs.link_file $PKG_PATH
 }
