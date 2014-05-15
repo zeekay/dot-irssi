@@ -336,7 +336,7 @@ settings = {
     activity_msg_level = "MSG";
     activity_hide_level = "joins parts quits nicks modes topic";
     hilight_act_color = "%M";
-    activity_hide_targets = "#electronic #node.js ##javascript #subfm #coffeescript #sancho #adullam #heapify";
+    activity_hide_targets = "#electronic #node.js ##javascript #subfm #coffeescript #go-nuts #edmproduction";
     completion_char = ",";
   };
   "irc/core" = {
@@ -387,47 +387,31 @@ settings = {
 hilights = (
   { text = "STARTS IN::"; nick = "yes"; word = "yes"; },
   { text = "zeekay"; nick = "yes"; word = "yes"; },
-  { text = "monoid.io"; nick = "yes"; word = "yes"; }
+  { text = "monoid"; nick = "yes"; word = "yes"; }
 );
 
-keyboard = ( 
+keyboard = (
   { key = "meta-s"; id = "command"; data = "_spellcheck "; }
 );
 
 
 ignores = (
   { mask = "MODES"; level = "ALL"; servertag = "verus"; },
-  { 
-    level = "JOINS PARTS QUITS NICKS";
-    channels = ( "#coffeescript" );
-  },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "##atom" ); },
-  { 
-    level = "JOINS PARTS QUITS NICKS";
-    channels = ( "##javascript" );
-  },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#node.js" ); },
-  { mask = "VOICE"; level = "ALL"; servertag = "verus"; },
-  { mask = "VOICES"; level = "ALL"; servertag = "verus"; },
-  { level = "MODES"; servertag = "verus"; },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#nothaskell" ); },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#koajs" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "##javascript" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#atom" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#coffeescript" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#edmproduction" ); },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#go-nuts" ); }
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#haskell" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#koajs" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#node.js" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#nothaskell" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#python" ); },
 );
-# vim:ft=perl
+
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
   2 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#crypt";
-        tag = "esper";
-      }
-    );
-  };
-  3 = {
     items = (
       {
         type = "CHANNEL";
@@ -437,7 +421,7 @@ windows = {
       }
     );
   };
-  4 = {
+  3 = {
     items = (
       {
         type = "CHANNEL";
@@ -447,17 +431,7 @@ windows = {
       }
     );
   };
-  5 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#verus";
-        tag = "verus";
-      }
-    );
-  };
-  6 = {
+  4 = {
     items = (
       {
         type = "CHANNEL";
@@ -467,7 +441,7 @@ windows = {
       }
     );
   };
-  7 = {
+  5 = {
     items = (
       {
         type = "CHANNEL";
@@ -477,7 +451,7 @@ windows = {
       }
     );
   };
-  8 = {
+  6 = {
     items = (
       {
         type = "CHANNEL";
@@ -487,13 +461,33 @@ windows = {
       }
     );
   };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#adullam";
+        tag = "udderweb";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#heapify";
+        tag = "oftc";
+      }
+    );
+  };
   9 = {
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#sancho";
-        tag = "lunarnet";
+        name = "#/r/";
+        tag = "efnet";
       }
     );
   };
@@ -532,8 +526,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#heapify";
-        tag = "oftc";
+        name = "#go-nuts";
+        tag = "freenode";
       }
     );
   };
@@ -542,45 +536,12 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#adullam";
-        tag = "udderweb";
-      }
-    );
-  };
-  15 = {
-    items = (
-      {
-        type = "QUERY";
-        chat_type = "IRC";
-        name = "bunnyule";
-        tag = "dlnetworks";
-      }
-    );
-  };
-  16 = {
-    items = (
-      { type = "QUERY"; chat_type = "IRC"; name = "bunny"; tag = "emp"; }
-    );
-  };
-  17 = {
-    items = (
-      {
-        type = "QUERY";
-        chat_type = "IRC";
-        name = "xaimus";
-        tag = "esper";
-      }
-    );
-  };
-  18 = {
-    items = (
-      {
-        type = "QUERY";
-        chat_type = "IRC";
-        name = "*status";
-        tag = "oftc";
+        name = "#edmproduction";
+        tag = "freenode";
       }
     );
   };
 };
 mainwindows = { 1 = { first_line = "1"; lines = "43"; }; };
+
+# vim:ft=perl
