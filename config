@@ -1,15 +1,6 @@
 servers = (
   {
-    address = "localhost";
-    autoconnect = "yes";
-    chatnet = "verus";
-    password = "zeekay/verus:ZNC_PASSWORD";
-    port = "9242";
-    ssl_verify = "no";
-    use_ssl = "yes";
-  },
-  {
-    address = "localhost";
+    address = "irc.efnet.znc";
     autoconnect = "yes";
     chatnet = "efnet";
     password = "zeekay/efnet:ZNC_PASSWORD";
@@ -18,7 +9,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "localhost";
+    address = "irc.emp.znc";
     autoconnect = "yes";
     chatnet = "emp";
     password = "zeekay/emp:ZNC_PASSWORD";
@@ -27,7 +18,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "localhost";
+    address = "irc.esper.znc";
     autoconnect = "yes";
     chatnet = "esper";
     password = "zeekay/esper:ZNC_PASSWORD";
@@ -36,7 +27,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "localhost";
+    address = "irc.freenode.znc";
     autoconnect = "yes";
     chatnet = "freenode";
     password = "zeekay/freenode:ZNC_PASSWORD";
@@ -45,7 +36,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "localhost";
+    address = "irc.lunarnet.znc";
     autoconnect = "yes";
     chatnet = "lunarnet";
     password = "zeekay/lunarnet:ZNC_PASSWORD";
@@ -54,7 +45,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "localhost";
+    address = "irc.oftc.znc";
     autoconnect = "yes";
     chatnet = "oftc";
     password = "zeekay/oftc:ZNC_PASSWORD";
@@ -63,7 +54,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "localhost";
+    address = "irc.dlnetworks.znc";
     autoconnect = "yes";
     chatnet = "dlnetworks";
     password = "zeekay/dlnetworks:ZNC_PASSWORD";
@@ -72,7 +63,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "localhost";
+    address = "irc.udderweb.znc";
     autoconnect = "yes";
     chatnet = "udderweb";
     password = "zeekay/udderweb:ZNC_PASSWORD";
@@ -81,18 +72,17 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "localhost";
+    address = "irc.verus.znc";
     autoconnect = "yes";
-    chatnet = "pagefreezer";
-    password = "zeekay/pagefreezer:ZNC_PASSWORD";
+    chatnet = "verus";
+    password = "zeekay/verus:ZNC_PASSWORD";
     port = "9242";
     ssl_verify = "no";
     use_ssl = "yes";
-  }
+  },
 );
 
 chatnets = {
-  verus = { type = "IRC"; };
   emp = { type = "IRC"; };
   esper = { type = "IRC"; };
   freenode = { type = "IRC"; };
@@ -101,23 +91,24 @@ chatnets = {
   oftc = { type = "IRC"; };
   udderweb = { type = "IRC"; };
   efnet = { type = "IRC"; };
-  pf = { type = "IRC"; };
-  pagefreezer = { type = "IRC"; };
+  verus = { type = "IRC"; };
 };
 
 channels = (
   { name = "##javascript"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#founders"; chatnet = "verus"; autojoin = "yes"; },
+  { name = "#/r/"; chatnet = "efnet"; autojoin = "yes"; }
   { name = "#adullam"; chatnet = "udderweb"; autojoin = "yes"; },
   { name = "#coffeescript"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#edmproduction"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#electronic"; chatnet = "emp"; autojoin = "yes"; },
+  { name = "#founders"; chatnet = "verus"; autojoin = "yes"; },
+  { name = "#go-nuts"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#heapify"; chatnet = "oftc"; autojoin = "yes"; },
   { name = "#node.js"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#smth"; chatnet = "esper"; autojoin = "yes"; },
-  { name = "#subfm"; chatnet = "dlnetworks"; autojoin = "yes"; },
   { name = "#production"; chatnet = "dlnetworks"; autojoin = "yes"; },
   { name = "#sancho"; chatnet = "lunarnet"; autojoin = "yes"; },
-  { name = "#/r/"; chatnet = "efnet"; autojoin = "yes"; }
+  { name = "#smth"; chatnet = "esper"; autojoin = "yes"; },
+  { name = "#subfm"; chatnet = "dlnetworks"; autojoin = "yes"; },
 );
 
 aliases = {
@@ -195,7 +186,7 @@ aliases = {
   SE = "SCRIPT EXEC use Irssi (@Irssi::EXPORT_OK)\\; $0-";
   vm_add = "/^statusbar prompt add -before prompt -alignment left vim_mode";
   vm_del = "/^statusbar prompt remove vim_mode";
-  identify = "/^msg nickserv NICKSERV_PASSWORD"
+  identify = "/^msg nickserv NICKSERV_PASSWORD";
 };
 
 statusbar = {
@@ -395,22 +386,11 @@ keyboard = (
   { key = "meta-s"; id = "command"; data = "_spellcheck "; }
 );
 
-
 ignores = (
   { mask = "MODES"; level = "ALL"; servertag = "verus"; },
-  {
-    level = "JOINS PARTS QUITS NICKS";
-    channels = ( "##javascript" );
-  },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#atom" ); },
-  {
-    level = "JOINS PARTS QUITS NICKS";
-    channels = ( "#coffeescript" );
-  },
-  {
-    level = "JOINS PARTS QUITS NICKS";
-    channels = ( "#edmproduction" );
-  },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "##javascript" ); }
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#coffeescript" ); }
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#edmproduction" ); }
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#go-nuts" ); },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#haskell" ); },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#koajs" ); },
