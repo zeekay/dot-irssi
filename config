@@ -195,6 +195,7 @@ aliases = {
   SE = "SCRIPT EXEC use Irssi (@Irssi::EXPORT_OK)\\; $0-";
   vm_add = "/^statusbar prompt add -before prompt -alignment left vim_mode";
   vm_del = "/^statusbar prompt remove vim_mode";
+  identify = "/^msg nickserv NICKSERV_PASSWORD"
 };
 
 statusbar = {
@@ -397,16 +398,25 @@ keyboard = (
 
 ignores = (
   { mask = "MODES"; level = "ALL"; servertag = "verus"; },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "##javascript" ); },
+  {
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "##javascript" );
+  },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#atom" ); },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#coffeescript" ); },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#edmproduction" ); },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#go-nuts" ); }
+  {
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#coffeescript" );
+  },
+  {
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#edmproduction" );
+  },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#go-nuts" ); },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#haskell" ); },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#koajs" ); },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#node.js" ); },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#nothaskell" ); },
-  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#python" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#python" ); }
 );
 
 windows = {
