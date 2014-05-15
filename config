@@ -1,6 +1,6 @@
 servers = (
   {
-    address = "is.whatit.is";
+    address = "localhost";
     autoconnect = "yes";
     chatnet = "verus";
     password = "zeekay/verus:ZNC_PASSWORD";
@@ -9,7 +9,16 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "is.whatit.is";
+    address = "localhost";
+    autoconnect = "yes";
+    chatnet = "efnet";
+    password = "zeekay/efnet:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "localhost";
     autoconnect = "yes";
     chatnet = "emp";
     password = "zeekay/emp:ZNC_PASSWORD";
@@ -18,7 +27,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "is.whatit.is";
+    address = "localhost";
     autoconnect = "yes";
     chatnet = "esper";
     password = "zeekay/esper:ZNC_PASSWORD";
@@ -27,7 +36,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "is.whatit.is";
+    address = "localhost";
     autoconnect = "yes";
     chatnet = "freenode";
     password = "zeekay/freenode:ZNC_PASSWORD";
@@ -36,7 +45,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "is.whatit.is";
+    address = "localhost";
     autoconnect = "yes";
     chatnet = "lunarnet";
     password = "zeekay/lunarnet:ZNC_PASSWORD";
@@ -45,7 +54,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "is.whatit.is";
+    address = "localhost";
     autoconnect = "yes";
     chatnet = "oftc";
     password = "zeekay/oftc:ZNC_PASSWORD";
@@ -54,7 +63,7 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "is.whatit.is";
+    address = "localhost";
     autoconnect = "yes";
     chatnet = "dlnetworks";
     password = "zeekay/dlnetworks:ZNC_PASSWORD";
@@ -63,10 +72,19 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "is.whatit.is";
+    address = "localhost";
     autoconnect = "yes";
     chatnet = "udderweb";
     password = "zeekay/udderweb:ZNC_PASSWORD";
+    port = "9242";
+    ssl_verify = "no";
+    use_ssl = "yes";
+  },
+  {
+    address = "localhost";
+    autoconnect = "yes";
+    chatnet = "pagefreezer";
+    password = "zeekay/pagefreezer:ZNC_PASSWORD";
     port = "9242";
     ssl_verify = "no";
     use_ssl = "yes";
@@ -82,12 +100,14 @@ chatnets = {
   lunarnet = { type = "IRC"; };
   oftc = { type = "IRC"; };
   udderweb = { type = "IRC"; };
+  efnet = { type = "IRC"; };
+  pf = { type = "IRC"; };
+  pagefreezer = { type = "IRC"; };
 };
 
 channels = (
   { name = "##javascript"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#founders"; chatnet = "verus"; autojoin = "yes"; },
-  { name = "#verus"; chatnet = "verus"; autojoin = "yes"; },
   { name = "#adullam"; chatnet = "udderweb"; autojoin = "yes"; },
   { name = "#coffeescript"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#electronic"; chatnet = "emp"; autojoin = "yes"; },
@@ -96,7 +116,8 @@ channels = (
   { name = "#smth"; chatnet = "esper"; autojoin = "yes"; },
   { name = "#subfm"; chatnet = "dlnetworks"; autojoin = "yes"; },
   { name = "#production"; chatnet = "dlnetworks"; autojoin = "yes"; },
-  { name = "#sancho"; chatnet = "lunarnet"; autojoin = "yes"; }
+  { name = "#sancho"; chatnet = "lunarnet"; autojoin = "yes"; },
+  { name = "#/r/"; chatnet = "efnet"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -189,7 +210,7 @@ statusbar = {
 
     # treated "normally", you could change the time/user name to whatever
     time = "{sb $Z}";
-    user = "%K[%n{sb {sbnickmode $cumode}$N%K]%n{sbaway $A}}";
+    user = "%n{sb {sbnickmode $cumode}$N%n{sbaway $A}}";
 
     # treated specially .. window is printed with non-empty windows, window_empty is printed with empty windows
     window = "{sb $winref:$itemname{sbmode $M}}";
@@ -301,11 +322,11 @@ settings = {
     autolog = "no";
     show_nickmode = "yes";
     show_quit_once = "no";
-    completion_auto = "yes";
+    completion_auto = "no";
     show_nickmode_empty = "no";
     autoclose_query = "0";
     term_charset = "utf-8";
-    theme = "default";
+    theme = "light";
     bell_beeps = "no";
     beep_msg_level = "DCC";
     beep_when_window_active = "no";
@@ -316,6 +337,7 @@ settings = {
     activity_hide_level = "joins parts quits nicks modes topic";
     hilight_act_color = "%M";
     activity_hide_targets = "#electronic #node.js ##javascript #subfm #coffeescript #sancho #adullam #heapify";
+    completion_char = ",";
   };
   "irc/core" = {
     skip_motd = "yes";
@@ -374,12 +396,23 @@ keyboard = (
 
 
 ignores = (
-  {
-    mask = "JOINS";
-    level = "PARTS QUITS NICKS";
-    channels = ( "#coffeescript", "##javascript", "#node.js" );
+  { mask = "MODES"; level = "ALL"; servertag = "verus"; },
+  { 
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#coffeescript" );
   },
-  { level = "JOINS PARTS QUITS"; channels = ( "#optimus", "#verus" ); }
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "##atom" ); },
+  { 
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "##javascript" );
+  },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#node.js" ); },
+  { mask = "VOICE"; level = "ALL"; servertag = "verus"; },
+  { mask = "VOICES"; level = "ALL"; servertag = "verus"; },
+  { level = "MODES"; servertag = "verus"; },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#nothaskell" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#koajs" ); },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#go-nuts" ); }
 );
 # vim:ft=perl
 windows = {
