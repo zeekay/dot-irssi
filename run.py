@@ -20,7 +20,6 @@ with open(temp_config, 'w') as f:
     f.write(config)
 
 # run irssi
-os.putenv('TZ', 'America/Los_Angeles')
 status = os.system('/usr/local/bin/irssi --config=%s' % temp_config)
 
 # clean up
