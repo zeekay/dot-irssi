@@ -1,3 +1,4 @@
+script load znc_timestamp
 script load autorejoin
 script load chanact
 script load dns
