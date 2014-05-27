@@ -318,7 +318,7 @@ settings = {
     show_nickmode_empty = "no";
     autoclose_query = "0";
     term_charset = "utf-8";
-    theme = "default";
+    theme = "light";
     bell_beeps = "no";
     beep_msg_level = "DCC";
     beep_when_window_active = "no";
@@ -387,9 +387,7 @@ keyboard = (
 );
 
 ignores = (
-  { level = "ALL"; mask = "MODES";  servertag = "verus"; },
-  { level = "ALL"; mask = "VOICE";  servertag = "verus"; },
-  { level = "ALL"; mask = "VOICES"; servertag = "verus"; },
+  { level = "MODES"; servertag = "verus"; },
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "##javascript" ); }
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#coffeescript" ); }
   { level = "JOINS PARTS QUITS NICKS"; channels = ( "#edmproduction" ); }
