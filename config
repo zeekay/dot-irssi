@@ -63,10 +63,10 @@ servers = (
     use_ssl = "yes";
   },
   {
-    address = "irc.udderweb.znc";
+    address = "irc.hashbang.znc";
     autoconnect = "yes";
-    chatnet = "udderweb";
-    password = "zeekay/udderweb:ZNC_PASSWORD";
+    chatnet = "hashbang";
+    password = "zeekay/hashbang:ZNC_PASSWORD";
     port = "9242";
     ssl_verify = "no";
     use_ssl = "yes";
@@ -89,7 +89,7 @@ chatnets = {
   dlnetworks = { type = "IRC"; };
   lunarnet = { type = "IRC"; };
   oftc = { type = "IRC"; };
-  udderweb = { type = "IRC"; };
+  hashbang = { type = "IRC"; };
   efnet = { type = "IRC"; };
   verus = { type = "IRC"; };
 };
@@ -97,7 +97,7 @@ chatnets = {
 channels = (
   { name = "##javascript"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#/r/"; chatnet = "efnet"; autojoin = "yes"; }
-  { name = "#adullam"; chatnet = "udderweb"; autojoin = "yes"; },
+  { name = "#!"; chatnet = "hashbang"; autojoin = "yes"; },
   { name = "#coffeescript"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#edmproduction"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#electronic"; chatnet = "emp"; autojoin = "yes"; },
@@ -456,8 +456,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#adullam";
-        tag = "udderweb";
+        name = "#!";
+        tag = "hashbang";
       }
     );
   };
