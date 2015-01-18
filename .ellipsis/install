@@ -1,1 +1,0 @@
-ln -s $module_path $HOME/.irssi
